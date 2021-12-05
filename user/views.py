@@ -75,9 +75,12 @@ def wish_detail(request,id):
 
 def wish_item(request):
     if request.method == 'POST':
+        item = request.POST['item']
+        if len(item) < 3 or not item:
+            messages.error(request, "Nombre invalido", extra_tags="register")
+            return redirect('../../wish_items/create/')
         username = request.session['username']
         user = models.User.objects.get(username=username)
-        item = request.POST['item']
         models.Wish.objects.create(name=item, added_by=user)
 
         wish = models.Wish.objects.get(name=item)

@@ -7,10 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <nav><a href="">Home</a> <a href="">Logout</a></nav>
+    <nav><a href="../../dashboard/">Home</a> <a href="../../logout/">Logout</a></nav>
     <main>
 
         <h2>Create a new wish list item</h2>
+        <ul class="messages">
+            {% for message in messages %}
+            {% if messages %}
+            <li>{{ message }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
         <form action='' method='post'>
             {% csrf_token %}
             Name: <input type='text' name='item'><br/>
