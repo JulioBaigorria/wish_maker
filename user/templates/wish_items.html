@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav><a href="../dashboard/">Home</a> <a href="../logout/">Logout</a></nav>
+    <main>
+        <h2>{{wish}}</h2>
+        <p>Users who added this product/item under their wish list:</p>
+
+        <div class="list">
+            <ul>
+               {% for wisher in wish.wishers.all %}
+            <li>{{ wisher.username }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
